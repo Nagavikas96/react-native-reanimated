@@ -1,5 +1,6 @@
 package com.swmansion.reanimated.nodes;
 
+import android.util.Log;
 import android.view.View;
 
 import com.facebook.react.bridge.Arguments;
@@ -94,7 +95,8 @@ public class PropsNode extends Node implements FinalNode {
           mPropMap.putDouble(key, node.doubleValue());
         } else {
           hasNativeProps = true;
-          nativeProps.putDouble(key, node.doubleValue());
+          Object value = node.value();
+          nativeProps.putString(key, (String) value);
         }
       }
     }
